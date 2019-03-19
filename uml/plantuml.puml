@@ -1,0 +1,35 @@
+@startuml
+
+:Kullanici: as k 
+
+usecase "resim yukle" as ryuk
+ usecase "yuklenenleri gor" as rgor
+ usecase "benzerleri gor" as bgor
+ usecase "benzerleri bul" as bbul
+ usecase "feature extractor" as extf
+  usecase "resmi kaydet " as rkaydet
+  usecase "feature kaydet" as fkaydet
+  usecase " kaydet" as kaydet
+  usecase "depolama" as dep
+
+usecase "sift" as sft
+usecase "CNN" as cnn
+
+sft.>extf :extends
+cnn.>extf :extends
+
+bbul----> extf
+    fkaydet .>extf :include
+    ryuk-left-->kaydet 
+    fkaydet.>kaydet :extends
+    fkaydet--->dep
+    rkaydet--->dep
+bbul--->dep
+rgor--->dep
+    rkaydet.>kaydet :extends
+    bgor-->bbul 
+ k-left--->ryuk
+k-right--->rgor
+k---->bgor
+    
+@enduml
