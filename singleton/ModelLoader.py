@@ -21,5 +21,5 @@ class ModelLoader:
 
 
 
-print(ModelLoader.get_model())
-print(ModelLoader.get_model())
+# print(ModelLoader.get_model())
+# print(ModelLoader.get_model())
