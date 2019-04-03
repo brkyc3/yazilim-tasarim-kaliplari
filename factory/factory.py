@@ -35,7 +35,7 @@ class DeepSimilarity(SimilarityTool):
 class SiftSimilarity(SimilarityTool):
 
     def find_similars(self, imageData):
-        print('sift net benzer goruntuler')
+        print('sift benzer goruntuler')
 
         return 'similar image ids'
 
