@@ -16,10 +16,19 @@ class ModelLoader:
                     #bu yuzden lock if icinde kullanildi
                     #lock if icinden oldugundan birden fazla threadden if icine giren olabilir
                     cls.__model = load_model(cls.__model_path)
-                    cls()
+                    cls.__model._make_predict_function()
+                    return cls.__model
+
         return cls.__model
 
 
 
 # print(ModelLoader.get_model())
 # print(ModelLoader.get_model())
+
+
+for i in range(20):
+    t = threading.Thread(target=lambda: print(ModelLoader.get_model()))
+    t.start()
+
+
