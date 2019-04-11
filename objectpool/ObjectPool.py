@@ -54,7 +54,9 @@ def waitForResource():
     if resource is None:
         print()
         time.sleep(5)
-        waitForResource()
+        return waitForResource()
+    else:
+        return resource
 
 
 def useAndReleaseResource():
