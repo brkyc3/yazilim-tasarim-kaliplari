@@ -1,0 +1,36 @@
+@startuml
+
+abstract class DedectorFactory{
++ {abstract} create_model()
++ {abstract} create_datagenerator()
+}
+
+abstract class AbstractModel{
++ {abstract} build_model()
+
+}
+
+abstract class AbstractGenerator{
++ {abstract} generate_data()
+
+}
+
+
+DedectorFactory <|-- GpuDedectorFactory
+DedectorFactory <|-- CpuDedectorFactory
+
+
+AbstractModel <|-- GpuModel
+AbstractModel <|-- CpuModel
+
+GpuDedectorFactory ...> GpuModel
+CpuDedectorFactory ...> CpuModel
+
+AbstractGenerator <|-- GpuGenerator
+AbstractGenerator <|-- CpuGenerator
+
+GpuDedectorFactory ...> GpuGenerator
+CpuDedectorFactory ...> CpuGenerator
+
+
+@enduml
