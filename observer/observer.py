@@ -54,7 +54,7 @@ class ConcreteSubscriberType(Subscriber):
 
 
 
-def backgroud(subject):
+def background(subject):
     while(1):
         rnd = random.randint(50,200)/100
         time.sleep(rnd)
@@ -74,7 +74,7 @@ def main():
     subject.subscribe(subs4_type)
 
 
-    t = threading.Thread(target=backgroud,args=[subject])
+    t = threading.Thread(target=background,args=[subject])
     t.start()
 
     while(1):
