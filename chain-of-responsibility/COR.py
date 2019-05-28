@@ -34,18 +34,13 @@ class GpuHandler(AbstractHardwareHandler):
 
     def __iter__(self):
 
-
-        if not self.isAvailable():
-            yield self.nextHandler()
-        else:
-            yield self
-
+        yield self.nextHandler()
 
     def isAvailable(self):
         return True
 
     def createModel(self):
-        print(self.model_type," olusturuluyor ")
+        print(self.model_type, " olusturuluyor ")
         return self.model_type
 
     def setNext(self, next_handler):
@@ -59,12 +54,7 @@ class GpuHandler(AbstractHardwareHandler):
 class TpuHandler(AbstractHardwareHandler):
     def __iter__(self):
 
-        if not self.isAvailable():
-
-
-            yield self.nextHandler()
-        else:
-            yield self
+        yield self.nextHandler()
 
     def nextHandler(self):
         if self.isAvailable():
@@ -77,14 +67,11 @@ class TpuHandler(AbstractHardwareHandler):
                 raise StopIteration
             return self.nextH.nextHandler()
 
-
-
-
     def isAvailable(self):
         return False
 
     def createModel(self):
-        print(self.model_type," olusturuluyor ")
+        print(self.model_type, " olusturuluyor ")
         return self.model_type
 
     def setNext(self, next_handler):
@@ -99,10 +86,7 @@ class CpuHandler(AbstractHardwareHandler):
 
     def __iter__(self):
 
-        if not self.isAvailable():
-            yield self.nextHandler()
-        else:
-            yield self
+        yield self.nextHandler()
 
     def nextHandler(self):
         if self.isAvailable():
@@ -114,13 +98,11 @@ class CpuHandler(AbstractHardwareHandler):
                 raise StopIteration
             return self.nextH.nextHandler()
 
-
-
     def isAvailable(self):
         return True
 
     def createModel(self):
-        print(self.model_type," olusturuluyor ")
+        print(self.model_type, " olusturuluyor ")
         return self.model_type
 
     def setNext(self, next_handler):
@@ -139,5 +121,4 @@ t.setNext(g)
 g.setNext(c)
 
 for handler in t:
-
     print(handler.createModel())
