@@ -1,10 +1,19 @@
+import random
+class Connection:
+    def __init__(self):
+        pass
+    def query_image(self,image_id):
+        #rastgele string uret
+        return ''.join([chr(random.randint(ord('a'),ord('z'))) for i in range(20)])
+
+
 def _find_similars(image, count):
-    similar_ids = []
+    similar_ids = [i for i in range(count)]
     return similar_ids
 
 
 def _connect_db():
-    return None
+    return Connection()
 
 
 class SimilarImages:
@@ -29,3 +38,6 @@ class SimilarImages:
         return image
 
 
+
+for img in SimilarImages('img'):
+    print("image ",img)

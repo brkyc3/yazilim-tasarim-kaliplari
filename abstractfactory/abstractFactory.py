@@ -17,9 +17,11 @@ class GpuDedectorFactory(DedectorFactory):
 
 
     def create_model(self):
+
         return GpuModel()
 
     def create_datagenerator(self):
+        print('gpuya ozel generator')
         return GpuGenerator()
 
 
@@ -30,6 +32,7 @@ class CpuDedectorFactory(DedectorFactory):
         return CpuModel()
 
     def create_datagenerator(self):
+        print('cpuya ozel generator')
         return CpuGenerator()
 
 
@@ -45,13 +48,15 @@ class GpuModel(AbstractModel):
 
 
     def build_model(self):
-        pass
+        print('gpu modeli olusturuludu')
+        return 'GPUMODEL'
 
 
 class CpuModel(AbstractModel):
 
     def build_model(self):
-        pass
+        print('cpu modeli olusturuludu')
+        return 'CPUMODEL'
 
 
 class AbstractGenerator(metaclass=abc.ABCMeta):
@@ -64,14 +69,16 @@ class AbstractGenerator(metaclass=abc.ABCMeta):
 class GpuGenerator(AbstractGenerator):
 
     def generate_data(self):
-        pass
+        print('veriyi oku ,ayrica gpuya yukle \n\n')
+        return "GPUGENERATOR"
 
 
 class CpuGenerator(AbstractGenerator):
 
 
     def generate_data(self):
-        pass
+        print('veriyi oku , geri dondur \n\n')
+        return "CPUGENERATOR"
 
 
 def main():

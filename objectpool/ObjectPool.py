@@ -1,6 +1,6 @@
 import threading
 import time
-
+import random
 
 class Connection:
 
@@ -52,18 +52,17 @@ pool_manager = ObjectPoolSingleton.get_Instance()
 def waitForResource():
     resource = pool_manager.getResource()
     if resource is None:
-        print()
+        print("waiting for resource  . . .")
         time.sleep(5)
         return waitForResource()
     else:
         return resource
 
 
-def useAndReleaseResource():
-    resource = pool_manager.getResource()
-    time.sleep(10)
+def useAndReleaseResource(resource,threadNum):
+
+    time.sleep(random.randint(1,4))
     pool_manager.releaseResource(resource)
+    print(threadNum," finished !")
 
-
-threading.Thread(target=useAndReleaseResource).start()
-rs = [waitForResource() for _ in range(100)]
+rs = [threading.Thread(target=useAndReleaseResource,args=[waitForResource(),i]).start()for i in range(300)]

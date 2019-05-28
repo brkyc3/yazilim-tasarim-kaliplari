@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+import random
 
 
 class SimilarityMethod:
@@ -21,7 +21,7 @@ class LabelSimilarity(SimilarityTool):
     def find_similars(self,imageData):
         print('labela gore benzer goruntuler')
 
-        return 'similar image ids'
+        return [random.randint(0,100) for _ in range(10)]
 
 
 
@@ -30,14 +30,14 @@ class DeepSimilarity(SimilarityTool):
     def find_similars(self, imageData):
         print('conv net benzer goruntuler')
 
-        return 'similar image ids'
+        return [random.randint(0,100) for _ in range(10)]
 
 class SiftSimilarity(SimilarityTool):
 
     def find_similars(self, imageData):
         print('sift benzer goruntuler')
 
-        return 'similar image ids'
+        return [random.randint(0,100) for _ in range(10)]
 
 class SimilarityToolFactory:
 
@@ -52,6 +52,12 @@ class SimilarityToolFactory:
 
 
 
+image = None
+
 
 tool = SimilarityToolFactory.create_similarity_tool(SimilarityMethod.LABEL)
-print(tool.find_similars('IMAGEDATA'))
+print(tool.find_similars(image))
+tool = SimilarityToolFactory.create_similarity_tool(SimilarityMethod.SIFT)
+print(tool.find_similars(image))
+tool = SimilarityToolFactory.create_similarity_tool(SimilarityMethod.DEEP)
+print(tool.find_similars(image))

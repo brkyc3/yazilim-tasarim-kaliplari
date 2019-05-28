@@ -55,7 +55,7 @@ class ConcreteSubscriberType(Subscriber):
 
 
 def background(subject):
-    while(1):
+    while 1:
         rnd = random.randint(50,200)/100
         time.sleep(rnd)
 

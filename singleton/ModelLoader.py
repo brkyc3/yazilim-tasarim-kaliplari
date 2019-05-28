@@ -2,7 +2,7 @@ import threading
 
 
 class ModelLoader:
-    __model_path = '/home/brkyzc/flowmodel3d.h5'
+    __model_path = '../models/simplemodel.h5'
     __singleton_lock = threading.Lock()
     __model = None
 
