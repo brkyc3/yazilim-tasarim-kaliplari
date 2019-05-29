@@ -4,7 +4,7 @@ import keras.backend.tensorflow_backend as K
 from keras.models import load_model
 
 
-class Loss:
+class CustomLoss:
 
     def __init__(self, loss_weight, center):
         self.loss_weight = loss_weight
@@ -12,7 +12,7 @@ class Loss:
 
     # keras loss function icin  ytrue,ypred seklinde iki parametre bekliyor.
     # Daha farkli parametrelere ihtiyac duyuldugunda decorator pattern kullanilabilir
-    def custom_loss(self):
+    def __call__(self):
         def c_loss(ytrue, ypred):
             loss = mae(ytrue, ypred)
             print(type(loss))
@@ -24,8 +24,8 @@ class Loss:
 
 
 m = load_model('../models/simplemodel.h5')
-loss = Loss(10, 0.5)
-m.compile(loss=loss.custom_loss(), optimizer='sgd')
+myLoss = CustomLoss(10, 0.5)
+m.compile(loss=myLoss(), optimizer='sgd')
 m.summary()
 
 print(m.loss)
