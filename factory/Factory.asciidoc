@@ -1,0 +1,3 @@
+= Factory
+
+factory tasarim kalibi nesne olusturulmasini soyutlayabilmemize ve  koddda minimum degisiklikle yeni classlar ekleyebilmemize olanak saglar

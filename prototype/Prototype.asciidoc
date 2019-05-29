@@ -1,0 +1,5 @@
+= Prototype
+
+Olusturulmasi maliyetli bir objenin cok sayida kopyasina ihtiyac duyuldugunda , ortak ve maliyetli alanlarin kopyalanmasina gerek yoktur.Tek bir obje ve bu objeye referansin tutulmasi yeterlidir.
+
+Ornek kullanim , daha onceden konfigurasyonu yapilmis ayni tip objeden yeni ornekler uretmek istiyorsak ,  tekrar tekrar konfigure etmek yerine bu tasarim kalibini kullanabiliriz.

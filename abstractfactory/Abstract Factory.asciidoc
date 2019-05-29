@@ -1,0 +1,8 @@
+= Abstract Factory
+
+Tespit etme islemi Gpu ile cok daha hizli yapilabiliyor.Ancak donanim bulunmadigi durumlarda da calismasini istiyoruz.
+
+Birbirinden gpu ve cpu kullanildiginda birbirinden farkli gereksinimlere ihtiyac duydugu ve farkli islemler yapilmasi gerektigi varsayildi.
+
+
+Ayni islemler if else bloklari ile de yapilabilir ancak kod karmasasini azaltmak ve okunurlugu arttirmak icin bu tasarim kalibi kullanildi

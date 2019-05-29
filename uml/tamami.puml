@@ -1,0 +1,116 @@
+@startuml
+
+
+class User{
+-fields
++ find_similars()
++ save_image()
+}
+
+
+
+abstract class AbscractSubscriber{
++ {abstract} update()
+}
+class Image{
+- observerCollection
+- _notify()
++ subscribe()
++ unsubscribe()
++ save_image()
+}
+
+class Trainer{
+- newImagesCount
+- customLoss
++ reTrain()
+}
+
+class CustomLoss{
+
+}
+
+Trainer o-- DedectorFactory
+Trainer *-- CustomLoss
+
+AbscractSubscriber <|..d Trainer
+class DB{
+}
+
+DB--lo Image
+class ExtensionSubscriber{
+}
+class LabelSubscriber{
+}
+AbscractSubscriber <|..ExtensionSubscriber
+AbscractSubscriber <|.. LabelSubscriber
+class ModelLoader{
+- __instance
++ get_model()
+}
+
+
+User o-- Image
+
+AbscractSubscriber ---ro Image
+class SimilarImages{
+
++ __iter__()
++ __next__()
+}
+
+abstract class AbstractHardwareHandler{
+- {abstract}is_available()
++{abstract} next_handler()
++ {abstract}create_model()
+}
+
+class GpuHandler{
+}
+class TpuHandler{
+}
+class CpuHandler{
+}
+
+AbstractHardwareHandler <|..GpuHandler
+AbstractHardwareHandler <|..TpuHandler
+AbstractHardwareHandler <|..CpuHandler
+abstract class DedectorFactory{
++ {abstract} create_model()
++ {abstract} create_datagenerator()
+}
+
+abstract class AbstractModel{
++ {abstract} build_model()
++ {abstract} dedect()
+
+}
+
+abstract class AbstractGenerator{
++ {abstract} generate_data()
+
+}
+
+AbscractSubscriber <|.. User
+
+DedectorFactory -->ModelLoader
+DedectorFactory ---> AbstractHardwareHandler
+DedectorFactory <|..GpuDedectorFactory
+DedectorFactory <|.. CpuDedectorFactory
+
+User --> SimilarImages
+SimilarImages --> DedectorFactory
+AbstractModel <|.. GpuModel
+AbstractModel <|.. CpuModel
+
+GpuDedectorFactory ---> GpuModel
+CpuDedectorFactory ---> CpuModel
+
+AbstractGenerator <|.. GpuGenerator
+AbstractGenerator <|.. CpuGenerator
+
+GpuDedectorFactory ---> GpuGenerator
+CpuDedectorFactory ---> CpuGenerator
+
+
+@enduml

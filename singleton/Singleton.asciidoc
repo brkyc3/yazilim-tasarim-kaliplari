@@ -1,0 +1,7 @@
+= Singleton
+
+Bir classtan maximum 1 adet obje uretilmesini (static gibi davranmasini ) istedigimiz durumlarda kullanilir.
+
+Staticten farki ise , static kod calistigi an kullanilsa da kullanilmasa da olusturulur. Singleton ise sadece kullanildigi durumlarda objeyi olusturur.
+
+Burada kodun farkli yerlerden birden cok kez modeli rame yuklemesi gereksiz yere hafiza harcamasina neden olur.Bu durumu onlemek , tek bir Model objesinin hafizada oldugundan emin olmak icin `singleton tasarim kalibi` kullanildi

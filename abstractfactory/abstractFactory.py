@@ -1,7 +1,7 @@
 import abc
 
 
-class DedectorFactory(metaclass=abc.ABCMeta):
+class DedectorFactory(abc.ABC):
 
 
     @abc.abstractmethod
@@ -36,7 +36,7 @@ class CpuDedectorFactory(DedectorFactory):
         return CpuGenerator()
 
 
-class AbstractModel(metaclass=abc.ABCMeta):
+class AbstractModel(abc.ABC):
 
 
     @abc.abstractmethod
@@ -59,7 +59,7 @@ class CpuModel(AbstractModel):
         return 'CPUMODEL'
 
 
-class AbstractGenerator(metaclass=abc.ABCMeta):
+class AbstractGenerator(abc.ABC):
 
     @abc.abstractmethod
     def generate_data(self):

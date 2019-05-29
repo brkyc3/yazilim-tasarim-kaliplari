@@ -1,2 +1,6 @@
 # yazilim-tasarim-kaliplari
-## yazilim-tasarim-kaliplari 2
+
+## yazilim-tasarim-kaliplari
+
+Yazilim tasarim kaliplari dersinde öğrenilen tasarım kalıpları kodları ve uml diagramları
+

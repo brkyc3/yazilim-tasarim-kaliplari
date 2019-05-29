@@ -1,0 +1,5 @@
+= Object Pool
+
+Object pool olusturulmasi zaman alan objelerin kullanima hazir sekilde bir havuzda saklanmasi ve ihtiyac oldugunda havuzdan mevcut objenin dondurulmesi mantigina dayanir.Isi biten kullanici kaynagi yikmak yerine tekrar havuza birakir.
+
+Havuzda kaynak kalmadigi durumlarda kullanici bekleyenler listesine alinarak , kaynak geldiginde haber verilebilir. `(observer pattern)`

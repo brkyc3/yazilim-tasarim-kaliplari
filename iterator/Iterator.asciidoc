@@ -1,0 +1,5 @@
+= Iterator
+
+Iterator tasarim kalibi bir veri ya da veri yapisi uzerinde dolasma isleminin kullanicidan soyutlanmasini saglar.
+
+Burada veri tabanindan okuma , ozellik cikarma gibi islemleri kullanicin bilmesine gerek yoktur.

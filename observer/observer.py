@@ -3,7 +3,7 @@ import uuid
 import random
 import time
 import threading
-class News:
+class Image:
     def __init__(self):
         self._subscribers = set()
 
@@ -23,11 +23,11 @@ class News:
 
 
 
-    def create_new(self, data):
-        print(data," created !")
+    def save_image(self, data):
+        print(data," saved !")
         self._notify(data)
 
-class Subscriber(metaclass=abc.ABCMeta):
+class Subscriber(abc.ABC):
 
     def __init__(self):
         self._subject = None
@@ -39,17 +39,17 @@ class Subscriber(metaclass=abc.ABCMeta):
         pass
 
 
-class ConcreteSubscriberName(Subscriber):
+class LabelSubscriber(Subscriber):
 
 
     def update(self, data):
-        print(self._subscriber_id," haber adi ", data['name'])
+        print(self._subscriber_id," image label :", data['label'])
 
 
-class ConcreteSubscriberType(Subscriber):
+class ExtentionSubscriber(Subscriber):
 
     def update(self, data):
-        print(self._subscriber_id, " haber turu ", data['tp'])
+        print(self._subscriber_id, " extension :", data['ext'])
 
 
 
@@ -60,17 +60,17 @@ def background(subject):
         time.sleep(rnd)
 
 
-        name =''.join([chr(random.randint(ord('a'),ord('z'))) for i in range(10)])
-        tp = ''.join([chr(random.randint(ord('a'), ord('z'))) for i in range(5)])
-        data = {'name':name,'tp':tp}
-        subject.create_new(data)
+        label =''.join([chr(random.randint(ord('a'),ord('z'))) for i in range(10)])
+        extention = ''.join([chr(random.randint(ord('a'), ord('z'))) for i in range(5)])
+        data = {'label':label,'ext':extention}
+        subject.save_image(data)
 
 
 def main():
-    subject = News()
-    subs4_name = ConcreteSubscriberName()
-    subs4_type = ConcreteSubscriberType()
-    subject.subscribe(subs4_name)
+    subject = Image()
+    subs4_label = LabelSubscriber()
+    subs4_type = ExtentionSubscriber()
+    subject.subscribe(subs4_label)
     subject.subscribe(subs4_type)
 
 
@@ -80,7 +80,7 @@ def main():
     while(1):
         print("MAIN MAIN MAIN MAIN ! ! !")
         time.sleep(0.1)
-    t.join()
+
 
 if __name__ == "__main__":
     main()

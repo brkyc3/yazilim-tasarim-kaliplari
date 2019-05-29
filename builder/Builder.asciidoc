@@ -1,0 +1,5 @@
+= Builder
+
+Constructer parametrelerinin farkli kombinasyonlari icin farkli constructerlar yazmak , kodun gereksiz karmasiklasmasina neden oluyor.
+
+Builder tasarim kalibi sadece istenen alanlarin tanimlanabilmesine olanak saglayarak , her bir kombinasyon icin ayri constructer yazma derdinden bizi kurtariyor.
