@@ -4,4 +4,4 @@
 
 Yazilim tasarim kaliplari dersinde öğrenilen tasarım kalıpları kodları ve uml diyagramları
 
-``Not  içerik çalışan bütün bir projede değil , paternların uygulamalarıdır ``
+``Not:  içerik çalışan bütün bir projede değil , paternların uygulamalarıdır ``
