@@ -1,5 +1,0 @@
-= Chain of Responsibility
-
-Sorumluluk zinciri tasarim kalibi burada tpu, gpu ve cpu donanimlarinin varligini sirasiyla kontrol ediyor. Kontrol sirasi hangisine oncelik verdigimizi gosteriyor.
-
-Uygun olan donanima gore model yaratiliyor.

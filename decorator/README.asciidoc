@@ -1,6 +1,6 @@
 = Decorator
 
-Keras loss functioni `loss(ytrue ,ypred)` seklinde 2 parametre alan bir fonksiyon seklinde tanimlamamizi bekliyor.
+Keras loss functioni `loss(ytrue ,ypred)`  2 parametre alan bir fonksiyon seklinde tanimlamamizi bekliyor.
 
 Daha fazla parametre kullanilmak istendiginde bunu decorator tasarim kalibi ile fonksiyonu kapsulleyerek yapabiliyoruz.
 
